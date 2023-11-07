@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.enterprisedepart.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <ToolBar layoutY="-2.0" prefHeight="42.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <items>
+        <Button fx:id="DataBase" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Главная">
+          <font>
+            <Font name="Book Antiqua" size="12.0" />
+          </font>
+        </Button>
+        <Button fx:id="DataBase1" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Запрос 1">
+          <font>
+            <Font name="Book Antiqua" size="12.0" />
+          </font>
+        </Button>
+        <Button fx:id="DataBase2" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Запрос 2">
+          <font>
+            <Font name="Book Antiqua" size="12.0" />
+          </font>
+        </Button>
+      </items>
+    </ToolBar>
+    <TableView fx:id="tableView" prefHeight="410.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+      <columns>
+        <TableColumn fx:id="columnId" prefWidth="48.0" text="ID" />
+        <TableColumn fx:id="columnFio" prefWidth="110.0" text="FIO" />
+        <TableColumn fx:id="columnBD" prefWidth="110.0" text="BIRTH DATE" />
+        <TableColumn fx:id="columnAddress" prefWidth="110.0" text="ADDRESS" />
+        <TableColumn fx:id="columnGender" prefWidth="110.0" text="GENDER_ID" />
+        <TableColumn fx:id="columnScience" prefWidth="100.0" text="SCIENCE_ID" />
+        <TableColumn fx:id="columnDepartment" prefWidth="110.0" text="DEPARTMENT_ID" />
+        <TableColumn fx:id="columnDateWork" prefWidth="110.0" text="DATE_WORK" />
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+      </columns>
+    </TableView>
+  </children>
+</AnchorPane>
