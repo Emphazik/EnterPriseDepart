@@ -15,7 +15,6 @@ import org.jetbrains.exposed.sql.transactions.transaction
 class DbContext {
     private val db = Database.connect(
         "jdbc:postgresql://localhost:5432/people_department",
-        driver = "org.postgresql.Driver",
         user = "postgres", password = "root"
     )
 
@@ -47,18 +46,15 @@ class DbContext {
     }
 
     fun fetchPeople(): List<PeopleModel> = transaction(db) {
-        val genders = fetchGenders()
-        val sciences = fetchScience()
-        val departments = fetchDepart()
         People.selectAll().map {
             PeopleModel(
                 it[People.id].value,
                 it[People.fio],
                 it[People.yo],
                 it[People.address],
-                genders.first { g -> g.id == it[People.gender]},
-                sciences.first { s -> s.id == it[People.science]},
-                departments.first { d -> d.id == it[People.department]},
+                it[People.gender],
+                it[People.science],
+                it[People.department],
                 it[People.dateWork]
             )
         }

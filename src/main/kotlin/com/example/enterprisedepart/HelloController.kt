@@ -7,7 +7,6 @@ import javafx.fxml.Initializable
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.cell.PropertyValueFactory
-import javafx.scene.control.cell.TextFieldTableCell
 import java.net.URL
 import java.time.LocalDate
 import java.util.*
@@ -36,18 +35,9 @@ class HelloController: Initializable {
         columnFio.cellValueFactory =  PropertyValueFactory("fio")
         columnBd.cellValueFactory =  PropertyValueFactory("yo")
         columnAddress.cellValueFactory =  PropertyValueFactory("address")
-        columnGender.cellValueFactory =  PropertyValueFactory("gender_id")
-        columnScience.cellValueFactory =  PropertyValueFactory("science_id")
-        columnDepartment.cellValueFactory =  PropertyValueFactory("department_id")
-        columnDateWork.cellValueFactory =  PropertyValueFactory("date_work")
-
-//        columnId.cellFactory = TextFieldTableCell.forTableColumn()
-//        columnFio.cellFactory = TextFieldTableCell.forTableColumn()
-//        columnBd.cellFactory = TextFieldTableCell.forTableColumn()
-//        columnAddress.cellFactory = TextFieldTableCell.forTableColumn()
-//        columnGender.cellFactory = TextFieldTableCell.forTableColumn()
-//        columnScience.cellFactory = TextFieldTableCell.forTableColumn()
-//        columnDepartment.cellFactory = TextFieldTableCell.forTableColumn()
-//        columnDateWork.cellFactory = TextFieldTableCell.forTableColumn()
+        columnGender.cellValueFactory =  PropertyValueFactory("gender")
+        columnScience.cellValueFactory =  PropertyValueFactory("science")
+        columnDepartment.cellValueFactory =  PropertyValueFactory("department")
+        columnDateWork.cellValueFactory =  PropertyValueFactory("dateWork")
     }
 }
