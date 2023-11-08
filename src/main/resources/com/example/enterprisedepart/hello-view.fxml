@@ -1,40 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" fx:controller="com.example.enterprisedepart.HelloController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.enterprisedepart.HelloController">
   <children>
-    <ToolBar layoutY="-2.0" prefHeight="42.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <ToolBar layoutY="-2.0" prefHeight="42.0" prefWidth="600.0" style="-fx-background-color: #FAEEDD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <items>
-        <Button fx:id="DataBase" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Главная">
+        <Button fx:id="dataBase" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Главная">
           <font>
             <Font name="Book Antiqua" size="12.0" />
           </font>
         </Button>
-        <Button fx:id="DataBase1" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Запрос 1">
+        <Button fx:id="dataBase1" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Запрос 1">
           <font>
             <Font name="Book Antiqua" size="12.0" />
           </font>
         </Button>
-        <Button fx:id="DataBase2" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Запрос 2">
+        <Button fx:id="dataBase2" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Запрос 2">
           <font>
             <Font name="Book Antiqua" size="12.0" />
           </font>
         </Button>
+            
+        <Button fx:id="addButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#getAddView" prefHeight="24.0" prefWidth="25.0" text=".">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/add.png" />
+                     </image></ImageView>
+               </graphic>
+        </Button>
+            <Button fx:id="refreshButton" contentDisplay="GRAPHIC_ONLY" layoutX="247.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#refreshTable" prefHeight="24.0" prefWidth="25.0" text=".">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="saveButton" contentDisplay="GRAPHIC_ONLY" layoutX="283.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="24.0" prefWidth="25.0" text=".">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
       </items>
     </ToolBar>
     <TableView fx:id="tableView" prefHeight="410.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
       <columns>
         <TableColumn fx:id="columnId" prefWidth="48.0" text="ID" />
         <TableColumn fx:id="columnFio" prefWidth="110.0" text="FIO" />
-        <TableColumn fx:id="columnBD" prefWidth="110.0" text="BIRTH DATE" />
+        <TableColumn fx:id="columnBd" prefWidth="90.0" text="BIRTH DATE" />
         <TableColumn fx:id="columnAddress" prefWidth="110.0" text="ADDRESS" />
-        <TableColumn fx:id="columnGender" prefWidth="110.0" text="GENDER_ID" />
-        <TableColumn fx:id="columnScience" prefWidth="100.0" text="SCIENCE_ID" />
+        <TableColumn fx:id="columnGender" prefWidth="80.0" text="GENDER_ID" />
+        <TableColumn fx:id="columnScience" prefWidth="80.0" text="SCIENCE_ID" />
         <TableColumn fx:id="columnDepartment" prefWidth="110.0" text="DEPARTMENT_ID" />
-        <TableColumn fx:id="columnDateWork" prefWidth="110.0" text="DATE_WORK" />
+        <TableColumn fx:id="columnDateWork" prefWidth="80.0" text="DATE_WORK" />
 
       </columns>
     </TableView>
