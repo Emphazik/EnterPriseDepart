@@ -9,14 +9,50 @@ import com.example.enterprisedepart.tables.Gender
 import com.example.enterprisedepart.tables.People
 import com.example.enterprisedepart.tables.Science
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
+import java.sql.Date
+import java.time.LocalDate
 
 class DbContext {
     private val db = Database.connect(
         "jdbc:postgresql://localhost:5432/people_department",
         user = "postgres", password = "root"
     )
+    fun insertPeople(peopleModel: PeopleModel) = transaction(db) {
+        People.insert{
+            it[id] = peopleModel.getId()
+            it[fio] = peopleModel.getFio()
+            it[yo] = LocalDate.parse(peopleModel.getYo())
+            it[address] = peopleModel.getAddress()
+            it[gender] = peopleModel.getGender()
+            it[science] = peopleModel.getScience()
+            it[department] = peopleModel.getDepartment()
+            it[dateWork] = LocalDate.parse(peopleModel.getDateWork())
+        }
+    }
+
+    fun insertDepartment(departModel: DepartModel) = transaction(db) {
+        Department.insert{
+            it[id] = departModel.getId()
+            it[departmentName] = departModel.getName()
+        }
+    }
+
+    fun insertGender(genderModel: GenderModel) = transaction(db){
+        Gender.insert {
+            it[id] = genderModel.getId()
+            it[genderName] = genderModel.getName()
+        }
+    }
+
+    fun insertScience(scienceModel: ScienceModel) = transaction(db){
+        Science.insert{
+            it[id] = scienceModel.getId()
+            it[scienceType] = scienceModel.gettype()
+        }
+    }
 
     fun fetchGenders(): List<GenderModel> = transaction(db) {
         Gender.selectAll().map {

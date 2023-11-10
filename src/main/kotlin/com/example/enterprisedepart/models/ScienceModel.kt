@@ -35,4 +35,7 @@ class ScienceModel(id: Int, type: String?) {
     fun settype(type: String?) {
         this.type.set(type)
     }
+    override fun toString(): String {
+        return "${getId()} ${gettype()}"
+    }
 }

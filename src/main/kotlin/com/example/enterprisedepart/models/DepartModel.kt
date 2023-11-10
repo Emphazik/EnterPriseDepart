@@ -35,4 +35,8 @@ class DepartModel(id: Int, name: String?) {
     fun setName(name: String?) {
         this.name.set(name)
     }
+
+    override fun toString(): String {
+        return "${getId()} ${getName()}"
+    }
 }
