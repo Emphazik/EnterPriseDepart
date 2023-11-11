@@ -35,16 +35,16 @@ class PeopleModel(
         this.dateWork = SimpleStringProperty(dateWork.toString())
     }
 
-    fun getId(): Int {
-        return id.get()
+    fun getId(): String {
+        return id.get().toString()
     }
 
     fun idProperty(): SimpleIntegerProperty {
         return id
     }
 
-    fun setId(id: Int) {
-        this.id.set(id)
+    fun setId(id: String) {
+        this.id.set(id.toInt())
     }
 
     fun getFio(): String {
@@ -83,40 +83,40 @@ class PeopleModel(
         this.address.set(address)
     }
 
-    fun getGender(): Int {
-        return gender.get()
+    fun getGender(): String {
+        return gender.get().toString()
     }
 
     fun genderProperty(): SimpleIntegerProperty {
         return gender
     }
 
-    fun setGender(gender: Int) {
-        this.gender.set(gender)
+    fun setGender(gender: String) {
+        this.gender.set(gender.toInt())
     }
 
-    fun getScience(): Int {
-        return science.get()
+    fun getScience(): String {
+        return science.get().toString()
     }
 
     fun scienceProperty(): SimpleIntegerProperty {
         return science
     }
 
-    fun setScience(science: Int) {
-        this.science.set(science)
+    fun setScience(science: String) {
+        this.science.set(science.toInt())
     }
 
-    fun getDepartment(): Int {
-        return department.get()
+    fun getDepartment(): String {
+        return department.get().toString()
     }
 
     fun departmentProperty(): SimpleIntegerProperty {
         return department
     }
 
-    fun setDepartment(department: Int) {
-        this.department.set(department)
+    fun setDepartment(department: String) {
+        this.department.set(department.toInt())
     }
 
     fun getDateWork(): String {
@@ -130,4 +130,19 @@ class PeopleModel(
     fun setDateWork(dateWork: String) {
         this.dateWork.set(dateWork)
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as PeopleModel
+
+        return id == other.id
+    }
+
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
+
+
 }

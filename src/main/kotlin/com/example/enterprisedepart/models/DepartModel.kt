@@ -4,23 +4,23 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 
 class DepartModel(id: Int, name: String?) {
-    private val id: SimpleIntegerProperty
+    private val id: SimpleStringProperty
     private val name: SimpleStringProperty
 
     init {
-        this.id = SimpleIntegerProperty(id)
+        this.id = SimpleStringProperty(id.toString())
         this.name = SimpleStringProperty(name)
     }
 
-    fun getId(): Int {
+    fun getId(): String {
         return id.get()
     }
 
-    fun idProperty(): SimpleIntegerProperty {
+    fun idProperty(): SimpleStringProperty {
         return id
     }
 
-    fun setId(id: Int) {
+    fun setId(id: String) {
         this.id.set(id)
     }
 
@@ -39,4 +39,19 @@ class DepartModel(id: Int, name: String?) {
     override fun toString(): String {
         return "${getId()} ${getName()}"
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as DepartModel
+
+        return id == other.id
+    }
+
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
+
+
 }
